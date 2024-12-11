@@ -1,4 +1,4 @@
-public class DemoDataType {
+public class DemoDataTypeday1 {
   public static void main(String[] args){
     // Comment. Welcome to bootcamp!#$%^&*
     // ! 1. Data Type (8 Primitive)

@@ -1,5 +1,4 @@
 
-import java.time.chrono.ThaiBuddhistChronology;
 
 public class Exercise20241210 {
   public static void main (String[] args) {
@@ -10,16 +9,13 @@ public class Exercise20241210 {
 
     double priceForAllApple = 21.9;
     double priceForAllOrange = 26.0;
-
-    double priceForAllApple = priceForApple * quantityOfApple;
-    double priceForAllOrange = priceForOrange * quantityOfOrange;
-    double totalAmount = priceForAllApple + priceForAllOrange;
-
-    System.out.println(totalAmount);; // 47.9
+    double totalAmount = 21.9 + 26.0;
+    System.out.println(totalAmount); // 47.9
 
     int mathScore = 73;
     int englishScore = 60;
     int historyScore = 61;
+    double averageScore = ((73 + 60 + 61) / 3);
 
     System.out.println(averageScore); // 64.666666
 
