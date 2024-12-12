@@ -1,4 +1,4 @@
-public class DemoHelloworld {
+public class DemoHelloworldday1 {
   public static void main(String[] args) {
     // double -> int (downcast)
 

@@ -1,4 +1,4 @@
-public class DemoOperator {
+public class DemoOperatorday2 {
   public static void main(String[] args ){
     // + 1
     int x = 3;
