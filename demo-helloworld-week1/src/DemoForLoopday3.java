@@ -189,21 +189,35 @@ public class DemoForLoopday3 {
     //  *****
     // *******
 
-    int o = 2;
-    for ( int i = 0; i < o-1; i++){
-      for ( int p = 0; p < o+1 ; p++) {
-        for ( int q = 0; q < i; q++){
-          for (int b = 0; b < i; b++){
-            System.out.println("");
-          }
-        }
-        System.out.println("");
-        System.out.println('*');
+    int[][] p = {
+      {' ', '*' , ' '},
+      {'*','*','*'},
+      {'*','*','*','*','*'},
+      {'*','*','*','*','*','*','*'}
+    };
+    for ( int i = 0 ; i < 4; i++){
+      for (int j = 0; j < i + 1; j++){
+        System.out.print('*');
       }
-      
+        System.out.println("");
     }
-    
 
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
   }
-}
+

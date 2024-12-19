@@ -1,5 +1,4 @@
-package QuestAndExercise;
-/**
+/*
  * Expected Output:
  * 
  * I am going to add two numbers together:

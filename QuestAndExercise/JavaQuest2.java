@@ -1,5 +1,4 @@
-
-    /**
+   /**
  * Expected Output:
  * 
  * a > 9
@@ -15,7 +14,7 @@ public class JavaQuest2 {
     } else if (a < 10) {
       System.out.println("a is between 0 and 8");
     // how about a > 9?
-    } else if (a > 9) {
+    } else if (a > 11) {
       System.out.println("a < 0");
     }
 

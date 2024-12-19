@@ -1,4 +1,3 @@
-package QuestAndExercise;
 
 import java.util.Scanner;
 
@@ -45,6 +44,26 @@ public class JavaQuest3 {
         monthOfName + " " + year + " has " + number_Of_DaysInMonth + " days");
   
   
+  
+  
+        // divided by 4, divided by 100,divided by 400
+        Switch (month){
+          // case 1
+        case 2 : 
+        if ( year % 4 !=0){
+        number_Of_DaysInMonth = 28;
+        } else if ( year % 4 == 0 && year % 100 != 0 && year % 400 == 0){
+          number_Of_DaysInMonth = 29;
+        } else if ( year % 4 == 0 && year % 100 != 0 && year % 400 != 0){
+
+        }else if ( year % 4 == 0 && year %100 == 0 && year % 400 ==0 ){
+          number_Of_DaysInMonth = 29;
+        }else if ( year % 4 == 0 && year %100 == 0 && year % 400 != 0){
+          
+        }
+        break;
+
+        }
   
   
   
