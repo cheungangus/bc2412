@@ -7,6 +7,8 @@ public abstract class Hero  {
     private int mp; // magic point
     private int level;
     private String id;
+    private int Maxhp;
+    private int Maxmp;
    
 
     // static final
@@ -17,10 +19,11 @@ public abstract class Hero  {
     // attacPower
 
     public Hero(
-    int hp, int mp, int level, String id){
+    int hp, int mp, int level, String id, int Maxhp , int Maxmp){
         
         this.id = id;       this.hp = hp;
         this.mp = mp;       this.level = level;
+        this.Maxhp = Maxhp; this.Maxmp = Maxmp;
     }
 // set ==================================================
     public void setHp(int hp){
@@ -32,7 +35,12 @@ public abstract class Hero  {
    public void setLevel(int level){
     this.level = level;
      }
-
+     public void setMaxHp(int Maxhp){
+        this.Maxhp = Maxhp;
+    }
+    public void setMaxMp(int Maxmp){
+        this.Maxmp = Maxmp;
+    }
 // get ==================================================
 
     public String getId(){
@@ -47,8 +55,19 @@ public abstract class Hero  {
     public int getLevel(){
         return this.level;
     }
-    
+    public int getMaxHP(){
+        return this.Maxhp;
+    }
+   
+    public int getMaxMP(){
+        return this.Maxmp;
+    }
 
+    private  final int MaxHp = 100;
+}
+// ==================================================
+
+    
     // Method:
     // Presentation: isAlive
     // Action : level up : +MaxHp, MaxMp()
@@ -59,5 +78,6 @@ public abstract class Hero  {
     //attackPower
     //Weapon,  
     
-}
 
+
+//

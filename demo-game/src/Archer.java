@@ -7,18 +7,16 @@ public class Archer extends Hero {
     private String cc; // Critical Damage Chance
     private int cd; // Critical Damage
     private int ag; //agility
-    private int maxHP;
-    private int maxMP;
-
-
+    
+    
+    
     public Archer(  int hp, int mp, int level, String id,
-    int maxHP, int maxMP, String role, int pa, 
+    int Maxhp , int Maxmp, String role, int pa, 
     int pd, int ma, int md, String cc,int cd,int ag ) {
         
-        super (hp, mp, level, id);
+        super (hp, mp, level, id,Maxhp,Maxmp);
         this.role = "Archer";
-        this.maxHP= maxHP;
-        this. maxMP = maxMP;
+       
         this.pa =pa;        this.pd = pd;
         this.ma =ma;        this.md=md;
         this.cc=cc;         this.cd=cd;
@@ -49,12 +47,7 @@ public class Archer extends Hero {
     public void setAg(){
         this.ag = ag;
     }
-    public void setMaxHP(){
-        this.maxHP = maxHP;
-    }
-    public void setMaxMP(){
-        this.maxMP = maxMP;
-    }
+
 // get ==================================================
     public String getRole(){
         return this.role;
@@ -88,20 +81,14 @@ public class Archer extends Hero {
         return this.ag;
     }
     
-    public int getMaxHP(){
-        return this.maxHP;
-    }
    
-    public int getMaxMP(){
-        return this.maxMP;
-    }
 // ==================================================
     public void levelUp(){
-            // setMp(getMp() + 10);
-            setHp(getHp() + 10);
             setLevel(getLevel() + 1);
-            this.maxHP += 50;
-            this.maxMP += 50;
+            setHp(getHp() + 50);
+            setMp(getMp() + 50);
+            setMaxHp(getMaxHP() + 50);
+            setMaxMp(getMaxMP() + 50);
             this.pa += 5;        
             this.pd += 5;
             this.ma += 5;        
@@ -109,6 +96,7 @@ public class Archer extends Hero {
             this.cd += 5;
             this.ag += 10;
             // this.cc += 2 ; // how to 70.1% ?
+            
     }
 // ==================================================
 
@@ -117,38 +105,37 @@ public class Archer extends Hero {
         Archer archer = new Archer(100,100,1,"A12312",100,100,
         "Archer",30,30,20,30,"70%",70,100); 
         
-        System.out.println("Role: " + archer.getRole());
-        System.out.println("Level: " + archer.getLevel());
+        System.out.println("Role: " + archer.getRole()); // Archer
+        System.out.println("Level: " + archer.getLevel()); // 1 
 //Basic status: 
-        System.out.println("HP: "+ archer.getHp());
-        System.out.println("MP: " + archer.getMp());
-        System.out.println("Max HP: " + archer.getMaxHP());
-        System.out.println("Max HP: " + archer.getMaxMP());
-        System.out.println("physical Attrack: " + archer.getPa());
-        System.out.println("physical defence: " + archer.getPd());
-        System.out.println("Magical Attack: " + archer.getMa());
-        System.out.println("Magical defense: " + archer.getMd());
-        System.out.println("Critical Damage Chance: " + archer.getCc());
-        System.out.println("Critical Damage: " + archer.getCd());
-        System.out.println("Agility : " + archer.getAg());
+        System.out.println("HP: "+ archer.getHp()); // 100
+        System.out.println("MP: " + archer.getMp()); // 100
+        System.out.println("MaxHP: " + archer.getMaxHP()); // 100
+        System.out.println("MaxMP: " + archer.getMaxMP()); // 100
+        System.out.println("physical Attrack: " + archer.getPa());  // 30
+        System.out.println("physical defence: " + archer.getPd()); // 30 
+        System.out.println("Magical Attack: " + archer.getMa()); // 20
+        System.out.println("Magical defense: " + archer.getMd()); // 30
+        System.out.println("Critical Damage Chance: " + archer.getCc()); // 70%
+        System.out.println("Critical Damage: " + archer.getCd()); // 70
+        System.out.println("Agility : " + archer.getAg()); // 100
         System.out.println("========================================");
-// After LevelUp;
+// After LevelUp; 1 -> 2
         archer.levelUp();
-        System.out.println("Level: " + archer.getLevel());
-        System.out.println("HP: "+ archer.getHp());
-        System.out.println("MP: " + archer.getMp());
-        System.out.println("Max HP: " + archer.getMaxHP());
-        System.out.println("Max HP: " + archer.getMaxMP());
-        System.out.println("physical Attrack: " + archer.getPa());
-        System.out.println("physical defence: " + archer.getPd());
-        System.out.println("Magical Attack: " + archer.getMa());
-        System.out.println("Magical defense: " + archer.getMd());
-        System.out.println("Critical Damage Chance: " + archer.getCc());
-        System.out.println("Critical Damage: " + archer.getCd());
-        System.out.println("Agility : " + archer.getAg());
+        System.out.println("Level: " + archer.getLevel()); //2
+        System.out.println("HP: "+ archer.getHp()); // 150
+        System.out.println("MP: " + archer.getMp()); // 150
+        System.out.println("MaxHP: " + archer.getMaxHP()); // 150
+        System.out.println("MaxMP: " + archer.getMaxMP()); // 150
+        System.out.println("physical Attrack: " + archer.getPa()); //35
+        System.out.println("physical defence: " + archer.getPd()); //35
+        System.out.println("Magical Attack: " + archer.getMa());  //25
+        System.out.println("Magical defense: " + archer.getMd()); // 35
+        System.out.println("Critical Damage Chance: " + archer.getCc()); //70%
+        System.out.println("Critical Damage: " + archer.getCd()); // 75
+        System.out.println("Agility : " + archer.getAg()); //110
         System.out.println("========================================");
 
-        
     }
 
 }
@@ -165,3 +152,27 @@ public class Archer extends Hero {
 // Critical Damage Chance = 70%
 // Critical Damage = + 70
 // Agility = 100
+
+// private static final int[] ARC_MAX_HP_TAB;
+// private static final int[] WAR_MAX_HP_TAB;
+// private static final int[] MAG_MAX_HP_TAB;
+
+
+// static{
+//     ARC_TAB = new int[] {1,2,3,4,5,6,7,8,9,10};
+//     WAR_TAB = new int[] {1,2,3,4,5,6,7,8,9,10};
+//     MAG_TAB = new int[] {1,2,3,4,5,6,7,8,9,10};
+// }
+// public static int getMaxHP(Role role, int level){
+//     switch(role){
+//         case ARCHER:
+//         return ARC_MAX_HP_TAB;[levle - 1];
+//         case WARRIOR:
+//         return WAR_MAX_HP_TAB;[level - 1];
+//         case MAGE:
+//         return MAG_MAX_HP_TAB;[level - 1];
+//         default:
+//         break;
+//     }
+//     return -1;
+// }
