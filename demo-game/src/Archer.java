@@ -1,6 +1,3 @@
-
-import javax.management.relation.Role;
-
 public class Archer extends Hero {
     private String role;
     private int pa; // Physical Attack
@@ -10,83 +7,156 @@ public class Archer extends Hero {
     private String cc; // Critical Damage Chance
     private int cd; // Critical Damage
     private int ag; //agility
+    private int maxHP;
+    private int maxMP;
 
 
     public Archer(  int hp, int mp, int level, String id,
-                    String role, int pa, int pd,int ma, 
-                    int md, String cc,int cd,int ag) {
+    int maxHP, int maxMP, String role, int pa, 
+    int pd, int ma, int md, String cc,int cd,int ag ) {
         
-        super(hp, mp, level, id);
+        super (hp, mp, level, id);
         this.role = "Archer";
+        this.maxHP= maxHP;
+        this. maxMP = maxMP;
         this.pa =pa;        this.pd = pd;
         this.ma =ma;        this.md=md;
         this.cc=cc;         this.cd=cd;
-        this.ag=ag;
+        this.ag=ag;         
     }
-
+// set ==================================================
+    public void setRole(){
+        this.role = role;
+    }
+    public void setpa(){
+        this.pa = pa;
+    }
+    public void setpd(){
+        this.pd = pd;
+    }
+    public void setMa(){
+        this.ma = ma;
+    }
+    public void setMd(){
+        this.md = md;
+    }
+    public void setcc(){
+        this.cc = cc;
+    }
+    public void setCd(){
+        this.cd = cd;
+    }
+    public void setAg(){
+        this.ag = ag;
+    }
+    public void setMaxHP(){
+        this.maxHP = maxHP;
+    }
+    public void setMaxMP(){
+        this.maxMP = maxMP;
+    }
+// get ==================================================
     public String getRole(){
         return this.role;
-    }
+    }    
+    
     public int getPa(){
         return this.pa;
     }
+    
     public int getPd(){
         return this.pd;
     }
+    
     public int getMa(){
         return this.ma;
     }
+    
     public int getMd(){
         return this.md;
     }
+    
     public String getCc(){
         return this.cc;
     }
+    
     public int getCd(){
         return this.cd;
     }
+    
     public int getAg(){
         return this.ag;
     }
-
-    public void levelUp(String role){
-        if(role.equals ("Archer")){
-            this.level += 1;
+    
+    public int getMaxHP(){
+        return this.maxHP;
+    }
+   
+    public int getMaxMP(){
+        return this.maxMP;
+    }
+// ==================================================
+    public void levelUp(){
+            // setMp(getMp() + 10);
+            setHp(getHp() + 10);
+            setLevel(getLevel() + 1);
+            this.maxHP += 50;
+            this.maxMP += 50;
             this.pa += 5;        
             this.pd += 5;
             this.ma += 5;        
             this.md += 5;
             this.cd += 5;
             this.ag += 10;
-        }
+            // this.cc += 2 ; // how to 70.1% ?
     }
-
+// ==================================================
 
     public static void main(String[] args) {
-        Archer archer = new Archer( 100,100,1,"A12312","Archer", 
-        30,30,20,30,"70%",70,100); //
         
-         System.out.println("Role: " + archer.getRole());
-         System.out.println("HP: "+ archer.getHp());
-         System.out.println("MP: " + archer.getMp());
-         System.out.println("Level: " + archer.getLevel());
-         System.out.println("physical Attrack: " + archer.getPa());
-         System.out.println("physical defence: " + archer.getPd());
-         System.out.println("Magical Attack: " + archer.getMa());
-         System.out.println("Magical defense: " + archer.getMd());
-         System.out.println("Critical Damage Chance: " + archer.getCc());
-         System.out.println("Critical Damage: " + archer.getCd());
-         System.out.println("Agility : " + archer.getAg());
-         System.out.println("=================");
-         
+        Archer archer = new Archer(100,100,1,"A12312",100,100,
+        "Archer",30,30,20,30,"70%",70,100); 
+        
+        System.out.println("Role: " + archer.getRole());
+        System.out.println("Level: " + archer.getLevel());
+//Basic status: 
+        System.out.println("HP: "+ archer.getHp());
+        System.out.println("MP: " + archer.getMp());
+        System.out.println("Max HP: " + archer.getMaxHP());
+        System.out.println("Max HP: " + archer.getMaxMP());
+        System.out.println("physical Attrack: " + archer.getPa());
+        System.out.println("physical defence: " + archer.getPd());
+        System.out.println("Magical Attack: " + archer.getMa());
+        System.out.println("Magical defense: " + archer.getMd());
+        System.out.println("Critical Damage Chance: " + archer.getCc());
+        System.out.println("Critical Damage: " + archer.getCd());
+        System.out.println("Agility : " + archer.getAg());
+        System.out.println("========================================");
+// After LevelUp;
+        archer.levelUp();
+        System.out.println("Level: " + archer.getLevel());
+        System.out.println("HP: "+ archer.getHp());
+        System.out.println("MP: " + archer.getMp());
+        System.out.println("Max HP: " + archer.getMaxHP());
+        System.out.println("Max HP: " + archer.getMaxMP());
+        System.out.println("physical Attrack: " + archer.getPa());
+        System.out.println("physical defence: " + archer.getPd());
+        System.out.println("Magical Attack: " + archer.getMa());
+        System.out.println("Magical defense: " + archer.getMd());
+        System.out.println("Critical Damage Chance: " + archer.getCc());
+        System.out.println("Critical Damage: " + archer.getCd());
+        System.out.println("Agility : " + archer.getAg());
+        System.out.println("========================================");
+
+        
     }
 
 }
 // Archer
 // HP = 100
 // MP = 100
-// Max HP + 50
-// Max MP + 60
+// Max HP = 100 + 50
+// Max MP = 100 + 50
 // id = A12312
 // Physical Attack = 30
 // Physical defense = 30

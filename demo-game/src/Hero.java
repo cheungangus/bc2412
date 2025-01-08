@@ -17,27 +17,37 @@ public abstract class Hero  {
     // attacPower
 
     public Hero(
-    int hp, int mp, int level,  
-    String id){
+    int hp, int mp, int level, String id){
         
         this.id = id;       this.hp = hp;
         this.mp = mp;       this.level = level;
-        
     }
+// set ==================================================
+    public void setHp(int hp){
+        this.hp = hp;
+     }
+    public void setMp(int mp){
+        this.mp = mp;
+     }
+   public void setLevel(int level){
+    this.level = level;
+     }
 
+// get ==================================================
+
+    public String getId(){
+        return this.id;
+    }
     public int getHp(){
         return this.hp;
     }
     public int getMp(){
         return this.mp;
-    }
+    }   
     public int getLevel(){
         return this.level;
     }
-    public String getId(){
-        return this.id;
-    }
-   
+    
 
     // Method:
     // Presentation: isAlive
