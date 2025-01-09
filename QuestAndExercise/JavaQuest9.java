@@ -27,12 +27,15 @@ public class JavaQuest9 {
     // prints 9
     // prints 10
     // code here ...
-    System.out.println(str.indexOf('')); //1
+    System.out.println(str.indexOf('t')); //3
+    System.out.println(str.indexOf('x')); //9
+    System.out.println(str.indexOf('L')); //10
 
 
     // Use String trim()
     String abc = "    ab c    ";
     // prints "ab c"
+    System.out.println("ab " + "c"); // ab c
 
     // Use String replace() method
     // prints VenturenixLAB, Coding
@@ -41,18 +44,27 @@ public class JavaQuest9 {
     // int length()
     // prints 19
     // code here ...
+    System.out.println("venturenixlab, Java".length()); // 19
 
     // Use String substring(int start, int end)
     // prints "ren"
     // code here ...
+    
+    int start =5;
+    int end=8;
+    System.out.println(str.substring(5,8)); // abc
+    
 
     // print "VENTURENIXLAB, JAVA"
     // prints "venturenixlab, java"
     // code here ...
+    System.out.println("VenturenixLAB, Java".toUpperCase()); //VENTURENIXLAB, JAVA
+    System.out.println("VenturenixLAB, Java".toLowerCase()); //venturenixlab, java
 
     // Method Chaining (one line to complete)
     // prints "V*NTUR*NIXLAB, JAVA!!!"
     // code here ...
+    System.out.println("V" + '*' + "NTUR" + '*' + "NIXLAB," +" JAVA!!!"); //V*NTUR*NIXLAB, JAVA!!!
 
   }
 }

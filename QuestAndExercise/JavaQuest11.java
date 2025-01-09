@@ -19,5 +19,7 @@ public class JavaQuest11 {
 
   public static int findDelayedArrivalTime(int arrivalTime, int delayedTime) {
     // code here ...
+    System.out.println(findDelayedArrivalTime(15,5));
+    
   }
 }

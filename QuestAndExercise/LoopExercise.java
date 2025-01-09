@@ -40,7 +40,7 @@ public class LoopExercise {
       // Find the product of evenSum and oddSum
       // Use: for loop + if
       int oddSum = 0;
-    int evenSum = 0;
+      int evenSum = 0;
     for (int i = 0; i < 11; i++) {
       if (i % 2 == 1) {
         oddSum += i;
@@ -54,11 +54,11 @@ public class LoopExercise {
       // 7. Check if 'd' exists in the string.
       // print "d is found."
       // otherwise, print "d is not found."
-      String str7 = "ijkabcpodi";
+        String str7 = "ijkabcpodi";
         char lastChar = str7.charAt(str7.length() -2 );
         System.out.println(lastChar); // d
   
-      // 8. Check if the string s8b is a substring of s8a
+ // 8. Check if the string s8b is a substring of s8a
       // print "s8b is a substring."
       // otherwise, print "s8b is not a substring."
       // Use: for loop + if + substring method
@@ -81,12 +81,12 @@ public class LoopExercise {
       System.out.println(count); // 2
       
   
-      // 10. Replace all char value 'x' in the given String array by 'k'
+// 10. Replace all char value 'x' in the given String array by 'k'
       // Print arr10: ["akc", "kkk", "k", "kbk", "mkk"]
       // Use: for loop + replace method
       String[] arr10 = new String[] {"akc", "xxx", "x", "xbx", "mkx"};
   
-      // 11. Count the number of Uppercase char value in the given string s11
+// 11. Count the number of Uppercase char value in the given string s11
       // Print "count uppercase=4"
       // Use: for loop + if
       String s11 = "kLKloOOu";
@@ -97,7 +97,7 @@ public class LoopExercise {
       // *****
       int o = 5;
       for ( int i = 0 ; i < 3 ; i++) {
-        for( int p = 0; p < 6 ; p++) {
+        for( int p = 0; p < 5 ; p++) {
          System.out.print("*");
            }
              System.out.println("");  //******
@@ -105,7 +105,7 @@ public class LoopExercise {
                                         //******
                }
   
-      // 13. Given a string value s13, each of the char value has its score.
+ // 13. Given a string value s13, each of the char value has its score.
       // Calculate the total score
       // Use: switch + for loop
   
@@ -140,7 +140,7 @@ public class LoopExercise {
       System.out.println(min); // -4
       System.out.println(max); // 9
   
-      // 16. Declare a float value (arr16) array with value 0.2, 0.3, 0.5
+// 16. Declare a float value (arr16) array with value 0.2, 0.3, 0.6
       float[] arr16 = new float[3];
       arr16[0] = 0.2f;
       arr16[1] = 0.3f;
@@ -155,17 +155,25 @@ public class LoopExercise {
       BigDecimal bd3 = bd1.add(bd2);
       System.out.println(bd3.doubleValue()); //0.7
 
-      // 18. Count the number of target strings in the String[]
+// 18. Count the number of target strings in the String[]
       String[] arr18 = new String[] {"Steve", "Tommy", "Katie", "Tommy", "Lydia"};
       String target = "Tommy";
       // Print "count name=2"
-  
-      // 19. swap the max digit and min digit
+
+     /*  int count1 = 0;
+      for (int i = 0; i < target.length(); i++) {
+        if ( charAt(i) == "Tommy"); {
+          count++;
+        }
+      }
+      System.out.println(count1);  */
+
+// 19. swap the max digit and min digit
       // Assumption: each digit value appear once in the String
       // Print: "49280"
       String s19 = "40289";
   
-      // 20. Find the longest String in the String array
+// 20. Find the longest String in the String array
       // Print "longest=programming"
       String[] arr20 = new String[] {"python", "array", "programming", "java", "bootcamp"};
       

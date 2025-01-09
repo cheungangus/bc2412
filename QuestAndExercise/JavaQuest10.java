@@ -28,7 +28,9 @@ public class JavaQuest10 {
 
     // code here ...
 
-    // my_array = newArr;
+    
+    int [] newArr = {25, 14, 56, 120, 15, 36, 56, 77, 18, 29};
+    my_array = newArr;
     System.out.println("New Array: " + Arrays.toString(newArr));
   }
 }
