@@ -1,76 +1,74 @@
-create database SQL_Exercise2;
+create database SQLExercise2;
+use SQLExercise2;
 
--- Use database
-use SQL_Exercise2;
-
-show databases;
-
-create table worker(
-worker_id integer not null primary key auto_increment, 
-first_name char(25), 
-last_name char(25), 
-salary numeric(15), 
+create table workers(
+worker_id int not null primary key auto_increment, 
+first_name varchar(20), 
+last_name varchar(20), 
+salary numeric(10,2), 
 joining_date datetime, 
-department char(25)
+department char(20)
 );
-select * from worker;
-insert into worker
-(first_name, last_name, salary, joining_date, department) values
-('Monika', 'Arora', 100000, '21-02-20 09:00:00', 'HR'),
-('Niharika', 'Verma', 80000, '21-06-11 09:00:00', 'Admin'),
-('Vishal', 'Singhal', 300000, '21-02-20 09:00:00', 'HR'),
-('Mohan', 'Sarah', 300000, '12-03-19 09:00:00', 'Admin'),
-('Amitabh', 'Singh', 500000, '21-02-20 09:00:00', 'Admin'),
-('Vivek', 'Bhati', 490000, '21-06-11 09:00:00', 'Admin'),
-('Vipul', 'Diwan', 200000, '21-06-11 09:00:00', 'Account'),
-('Satish', 'Kumar', 75000, '21-01-20 09:00:00', 'Account'),
-('Geetika', 'Chauhan', 90000, '21-04-11 09:00:00', 'Admin');
 
+insert into workers (first_name, last_name, salary, joining_date, department) values
+('Monika', 'Arora',100000,'21-02-20 09:00:00','HR'),
+('Niharika', 'Verma',80000,'21-06-11 09:00:00','Admin'),
+('Vishal','Singhal',300000,'21-02-20 09:00:00','HR'),
+('Mohan','Sarah',300000,'12-03-19 09:00:00','Admin'),
+('Amitabh','Singh',500000,'21-02-20 09:00:00','Admin'),
+('Vivek','Bhati',490000,'21-06-11 09:00:00','Admin'),
+('Vipul','Diwan',200000,'21-06-11 09:00:00','Account'),
+('Satish','Kumar',750000,'21-01-20 09:00:00','Account'),
+('Geetika','Chauhan',90000,'21-04-11 09:00:00','Admin');
+select * from workers;
 create table bonus(
-worker_ref_id integer, 
+worker_ref_id int, 
 bonus_amount numeric(10), 
 bonus_date datetime, 
-foreign key (worker_ref_id) references worker(worker_id));
-
-select * from bonus;
-drop table bonus;
+foreign key(worker_ref_id) references workers(worker_id)
+);
 -- Q1
-insert into bonus
-(worker_ref_id, bonus_amount, bonus_date) values
-(6,32000, '21-02-02'), 
-(6,20000, '22-02-02'), 
-(5,21000, '21-02-02'), 
-(9,30000, '21-02-02'), 
-(8,4500, '22-02-02'); 
+insert into bonus(worker_ref_id, bonus_amount,bonus_date) values
+(6,32000,'2021-11-02'),
+(6,20000,'2021-11-02'),
+(5,21000,'2021-11-02'),
+(9,30000,'2021-11-02'),
+(8,4500,'2022-11-02');
+select * from  bonus;
 
--- Q2 Write an SQL query to show the second hightest salary amont all workers
-select first_name, last_name, salary from worker order by salary DESC ;
+-- Q2
+select salary
+from workers
+order by salary desc 
+limit 1
+offset 1;
 
--- Q3 Write an SQL query to print the name of employees having the hightest salary in each department.
-select first_name, last_name, salary, department 
-from worker 
-group by first_name, last_name, salary, department
-order by department,salary DESC ;
+-- Q3
+with dept_table as (
+select department, max(salary) as max_salary
+from workers
+group by department
+)
+select * 
+from workers w, dept_table d
+where w.department = d.department
+and w.salary = d.max_salary;
 
--- Q4 Write an SQL query to fetch the list of employees with the same salary.
-select first_name, last_name, salary
-from worker 
-where salary = 300000 
-;
+-- Q4 
+with salary_table as (
+select salary
+from workers
+group by salary 
+having count(salary) > 1 )
+select w.first_name, w.last_name
+from workers w, salary_table s
+where w.salary = s.salary;
 
--- Q5 Write an SQL query to find the worker names with salaries + bonus in 2021
-select first_name, last_name, (salary+ b.bonus_amount) as total_compensation
-from worker, bonus b
-where b.bonus_date like '2021%';
-
--- Q6 (Complete Task 1-5 first) 
--- 		Try to delete all the records in table worker
--- 		Study the reason why the date cannot be delted
-alter table worker
-drop worker;
-select * from worker;
-
--- Q7 (complete Task 6 first)
--- 		Try to drop table worker
---  	Study the reason why the table cannot be deleted
-drop table  worker;
+-- Q5 
+with bonus_table as (
+select worker_ref_id, sum(bonus_amount) as bonus
+from bonus
+group by worker_ref_id)
+select w.first_name, w.last_name, w.salary + IFNULL(b.bonus,0)
+from workers w
+left join bonus_table b on w.worker_id = b.bonus;
